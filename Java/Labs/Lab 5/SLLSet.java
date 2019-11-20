@@ -19,7 +19,7 @@ public class SLLSet {
             for (int i = 1; i < size; i++) {
                 current.next = new SLLNode(sortedArray[i], null);
                 current = current.next;
-                }
+            }
         }
     }
 
@@ -194,13 +194,13 @@ public class SLLSet {
         SLLNode current1 = head;
         SLLNode current2 = s.head;
 
-        while (current1 != null && current2 != null) {
-            if (current1.value == current2.value) {
-                if (intersect.head == null) {
+        while (current1 != null && current2 != null) { // iterates through list if both are not else (if both are null it'll just go return statement and return empty set)
+            if (current1.value == current2.value) { // if same value, adds to list if it is
+                if (intersect.head == null) { // if head for intersect does not exist, creates head with current value
                     intersect.head = new SLLNode(current1.value, null);
                     currentIntersect = intersect.head;
                 }
-                else {
+                else { // if head does exist, adds new node with current value
                     currentIntersect.next = new SLLNode(current1.value, null);
                     currentIntersect = currentIntersect.next;
                 }
@@ -208,10 +208,10 @@ public class SLLSet {
                 current2 = current2.next;
                 intersect.size++;
             }
-            else if (current1.value < current2.value) {
+            else if (current1.value < current2.value) { // moves current1 to next if it is less than current2 (intersection only occurs if values are same)
                 current1 = current1.next;
             }
-            else {
+            else { // moves current2 to next if it is less than current1
                 current2 = current2.next;
             }
         }
