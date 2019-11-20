@@ -36,11 +36,13 @@ public class SLLSet {
         deepCopy.head = new SLLNode(head.value, null);
         SLLNode current = head;
         SLLNode deepCopyCurrent = deepCopy.head;
-        for (int i = 0; i < size - 1; i++) {
+
+        while (current.next != null) {
             current = current.next;
             deepCopyCurrent.next = new SLLNode(current.value, null); // copies value from original set to copied set
             deepCopyCurrent = deepCopyCurrent.next;
         }
+
         return deepCopy;
     }
 
@@ -113,7 +115,6 @@ public class SLLSet {
                 current = current.next;
             }
         }
-
     }
 
     public SLLSet union(SLLSet s) {
