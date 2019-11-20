@@ -151,23 +151,19 @@ public class SLLSet {
         while (current1 != null && current2 != null) { // still ends when one list ends because it cannot compare value to a null object
             if (current1.value == current2.value) { // checks if values are same, adds current value if same and moves both sets to next
                 currentUnion.next = new SLLNode(current1.value, null);
-                currentUnion = currentUnion.next;
                 current1 = current1.next;
                 current2 = current2.next;
-                unionSet.size++;
             }
             else if (current1.value < current2.value) { // checks if value of current1 is less, adds value of current1 if less and moves current1 to next
                 currentUnion.next = new SLLNode(current1.value, null);
-                currentUnion = currentUnion.next;
                 current1 = current1.next;
-                unionSet.size++;
             }
             else { // checks if value of current2 is less, adds value of current2 if less and moves current1 to next
                 currentUnion.next = new SLLNode(current2.value, null);
-                currentUnion = currentUnion.next;
                 current2 = current2.next;
-                unionSet.size++;
             }
+            currentUnion = currentUnion.next;
+            unionSet.size++;
         }
 
         // iterates remaining list
