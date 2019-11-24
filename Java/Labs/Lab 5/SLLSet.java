@@ -93,6 +93,9 @@ public class SLLSet {
         if (head == null) {
             return; // ends if set is empty
         }
+        if (!isIn(v)) {
+            return;
+        }
         if (head.value == v) { // if removed node is head, sets head value to head.next
             head = head.next;
             size--;
