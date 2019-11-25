@@ -66,8 +66,7 @@ public class SLLSet {
             SLLNode current = head;
             SLLNode nextNode = null; // to store node after the added element
             if (head.value > v) { // makes v head if less than head value
-                nextNode = head;
-                head = new SLLNode(v, nextNode);
+                head = new SLLNode(v, head);
                 size++;
             }
             else {
